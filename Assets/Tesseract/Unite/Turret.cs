@@ -11,7 +11,6 @@
 
 		public float range=400;
 		public float fireRate=2;
-		[SerializeField]private LineRenderer line;
 
 		private RaycastHit sensor;
 		private RaycastHit hit2;
@@ -23,8 +22,6 @@
 		public void Update () {
 			Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out sensor, range);
 			targeting.targetPoint = sensor.point;
-			Physics.Raycast(line.transform.position, line.transform.forward, out hit2);
-			line.SetPosition(1, hit2.point.z*Vector3.forward);
 		}
 		
 		/*public void Fire(){
