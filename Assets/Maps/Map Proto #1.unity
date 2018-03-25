@@ -263,6 +263,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -198.532
       objectReference: {fileID: 0}
+    - target: {fileID: 3300000, guid: 81f86d79e28229b4b8031a04e392c7fa, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 0f4fac8b3f3864a8ea6f86dc1cf8bdc5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81f86d79e28229b4b8031a04e392c7fa, type: 3}
   m_IsPrefabParent: 0
@@ -336,6 +340,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -190.43199
       objectReference: {fileID: 0}
+    - target: {fileID: 3300000, guid: 8df5b0c83c88f9f42b8bc3b1f463ed3c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: a3a73f75074154ea2a47ad3b1b1a8ba6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8df5b0c83c88f9f42b8bc3b1f463ed3c, type: 3}
   m_IsPrefabParent: 0
@@ -711,7 +719,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 229849875}
   m_GameObject: {fileID: 843712376}
-  m_Mesh: {fileID: 4300000, guid: 8df5b0c83c88f9f42b8bc3b1f463ed3c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a3a73f75074154ea2a47ad3b1b1a8ba6, type: 3}
 --- !u!64 &843712381
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -834,7 +842,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 973957513}
-  m_LocalRotation: {x: 0.33976582, y: -0.26072162, z: 0.14206295, w: 0.8924133}
+  m_LocalRotation: {x: 0.33976585, y: -0.26072165, z: 0.14206296, w: 0.8924134}
   m_LocalPosition: {x: -53.5, y: 43.57, z: -65.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1547,7 +1555,7 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 218445499}
   m_GameObject: {fileID: 1987874951}
-  m_Mesh: {fileID: 4300000, guid: 81f86d79e28229b4b8031a04e392c7fa, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0f4fac8b3f3864a8ea6f86dc1cf8bdc5, type: 3}
 --- !u!64 &1987874955
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1561,7 +1569,7 @@ MeshCollider:
   m_Convex: 0
   m_InflateMesh: 1
   m_SkinWidth: 7.9
-  m_Mesh: {fileID: 4300000, guid: 81f86d79e28229b4b8031a04e392c7fa, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0f4fac8b3f3864a8ea6f86dc1cf8bdc5, type: 3}
 --- !u!1 &2011343094
 GameObject:
   m_ObjectHideFlags: 0
