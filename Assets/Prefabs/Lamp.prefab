@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33622444326710126}
   - component: {fileID: 23843695950677750}
   - component: {fileID: 95482801305871366}
+  - component: {fileID: 64032770864869344}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -113,7 +114,21 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722750331877168}
-  m_Mesh: {fileID: 4300000, guid: caae4de36f023ec4cb66a5631700c9a6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0d7545b09e25342df957185c2d5bc809, type: 3}
+--- !u!64 &64032770864869344
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722750331877168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0d7545b09e25342df957185c2d5bc809, type: 3}
 --- !u!95 &95482801305871366
 Animator:
   serializedVersion: 3
@@ -141,7 +156,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.52
   m_Range: 15.36
   m_SpotAngle: 30
   m_CookieSize: 10
