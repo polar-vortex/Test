@@ -195,29 +195,28 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void ApplyDrive(float accel, float footbrake)
         {
-
             float thrustTorque;
-            switch (m_CarDriveType)
-            {
-                case CarDriveType.FourWheelDrive:
-                    thrustTorque = accel * (m_CurrentTorque / 4f);
-                    for (int i = 0; i < 4; i++)
-                    {
-                        m_WheelColliders[i].motorTorque = thrustTorque;
-                    }
-                    break;
+			switch (m_CarDriveType) {
+			case CarDriveType.FourWheelDrive:
+				thrustTorque = accel * (m_CurrentTorque / 4f);
+				//thrustTorque = accel * m_FullTorqueOverAllWheels / 4;
+				for (int i = 0; i < 4; i++) {
+					m_WheelColliders[i].motorTorque = thrustTorque;
+					print(m_WheelColliders[i].motorTorque+" "+m_Rigidbody.velocity.magnitude);
+				}
+				break;
 
-                case CarDriveType.FrontWheelDrive:
-                    thrustTorque = accel * (m_CurrentTorque / 2f);
-                    m_WheelColliders[0].motorTorque = m_WheelColliders[1].motorTorque = thrustTorque;
-                    break;
+			case CarDriveType.FrontWheelDrive:
+				thrustTorque = accel * (m_CurrentTorque / 2f);
+				m_WheelColliders[0].motorTorque = m_WheelColliders[1].motorTorque = thrustTorque;
+				break;
 
-                case CarDriveType.RearWheelDrive:
-                    thrustTorque = accel * (m_CurrentTorque / 2f);
-                    m_WheelColliders[2].motorTorque = m_WheelColliders[3].motorTorque = thrustTorque;
-                    break;
+			case CarDriveType.RearWheelDrive:
+				thrustTorque = accel * (m_CurrentTorque / 2f);
+				m_WheelColliders[2].motorTorque = m_WheelColliders[3].motorTorque = thrustTorque;
+				break;
 
-            }
+			}
 
             for (int i = 0; i < 4; i++)
             {
