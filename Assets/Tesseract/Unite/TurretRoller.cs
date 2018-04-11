@@ -33,25 +33,25 @@
 			targetAngles.x = relativeTargetPosition.z > 0 ? targetAngles.x : 180 + targetAngles.x;
 			targetAngles.y = relativeTargetPosition.z > 0 ? targetAngles.y : 180 + targetAngles.y;
 
-			xAxle.localEulerAngles = new Vector3(0, xAxle.localEulerAngles.y, 0);
-			yAxle.localEulerAngles = new Vector3(yAxle.localEulerAngles.x, 0, 0);
+			//xAxle.localEulerAngles = new Vector3(xAxle.localEulerAngles.x, 90, 0);
+			yAxle.localEulerAngles = new Vector3(0, 180, yAxle.localEulerAngles.z);
 
 			Mathf.SmoothDampAngle(0, targetAngles.x, ref vAngular.y, rotateTime);
 			Mathf.SmoothDampAngle(0, targetAngles.y, ref vAngular.x, rotateTime);
 			Rotate(vAngular.x, vAngular.y);
 
-
 			if (yAxle.localEulerAngles.x < 180 && yAxle.localEulerAngles.x > yAxleLimit.x) {
-				yAxle.localEulerAngles = new Vector3(yAxleLimit.x, 0, 0);
+				yAxle.localEulerAngles = new Vector3(0, 0, yAxleLimit.x);
 			}
 			if (yAxle.localEulerAngles.x > 180 && yAxle.localEulerAngles.x < yAxleLimit.y) {
-				yAxle.localEulerAngles = new Vector3(yAxleLimit.y, 0, 0);
+				yAxle.localEulerAngles = new Vector3(0, 0, yAxleLimit.y);
 			}
 		}
 
 		public void Rotate(float xValue, float yValue){
-			xAxle.Rotate (Vector3.up * xValue * Time.deltaTime);
-			yAxle.Rotate (Vector3.right * yValue * Time.deltaTime);
+			xAxle.Rotate (Vector3.right * xValue * Time.deltaTime);
+			print(yValue);
+			yAxle.Rotate (Vector3.forward * yValue * Time.deltaTime);
 		}
 	}
 }

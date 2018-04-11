@@ -202,7 +202,7 @@ namespace UnityStandardAssets.Vehicles.Car
 				//thrustTorque = accel * m_FullTorqueOverAllWheels / 4;
 				for (int i = 0; i < 4; i++) {
 					m_WheelColliders[i].motorTorque = thrustTorque;
-					print(m_WheelColliders[i].motorTorque+" "+m_Rigidbody.velocity.magnitude);
+				//	print(m_WheelColliders[i].motorTorque+" "+m_Rigidbody.velocity.magnitude);
 				}
 				break;
 
