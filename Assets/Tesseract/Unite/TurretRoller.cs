@@ -9,7 +9,6 @@
 
 		[SerializeField]private float rotateTime=1f;
 		[SerializeField]private Vector2 yAxleLimit;
-		[SerializeField]private Vector2 xAxleLimit;
 
 		[SerializeField]private Transform xAxle;
 		[SerializeField]private Transform yAxle;
@@ -27,8 +26,9 @@
 		void Update () {
 			Vector3 relativeTargetPosition = selfTransform.InverseTransformPoint(targetPoint);
 
-			targetAngles.x = -Mathf.Atan(relativeTargetPosition.y / relativeTargetPosition.z) * Mathf.Rad2Deg;
+			targetAngles.x = Mathf.Atan(relativeTargetPosition.y / relativeTargetPosition.z) * Mathf.Rad2Deg;
 			targetAngles.y = Mathf.Atan(relativeTargetPosition.x / relativeTargetPosition.z) * Mathf.Rad2Deg;
+			print(targetAngles.y);
 
 			targetAngles.x = relativeTargetPosition.z > 0 ? targetAngles.x : 180 + targetAngles.x;
 			targetAngles.y = relativeTargetPosition.z > 0 ? targetAngles.y : 180 + targetAngles.y;
@@ -40,17 +40,16 @@
 			Mathf.SmoothDampAngle(0, targetAngles.y, ref vAngular.x, rotateTime);
 			Rotate(vAngular.x, vAngular.y);
 
-			if (yAxle.localEulerAngles.x < 180 && yAxle.localEulerAngles.x > yAxleLimit.x) {
-				yAxle.localEulerAngles = new Vector3(0, 0, yAxleLimit.x);
+			if (yAxle.localEulerAngles.z < 180 && yAxle.localEulerAngles.z > yAxleLimit.x) {
+				yAxle.localEulerAngles = new Vector3(0, 180, yAxleLimit.x);
 			}
-			if (yAxle.localEulerAngles.x > 180 && yAxle.localEulerAngles.x < yAxleLimit.y) {
-				yAxle.localEulerAngles = new Vector3(0, 0, yAxleLimit.y);
+			if (yAxle.localEulerAngles.z > 180 && yAxle.localEulerAngles.z < yAxleLimit.y) {
+				yAxle.localEulerAngles = new Vector3(0, 180, yAxleLimit.y);
 			}
 		}
 
 		public void Rotate(float xValue, float yValue){
 			xAxle.Rotate (Vector3.right * xValue * Time.deltaTime);
-			print(yValue);
 			yAxle.Rotate (Vector3.forward * yValue * Time.deltaTime);
 		}
 	}
