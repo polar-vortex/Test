@@ -705,34 +705,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4373188940843056, guid: 585a7ac05989b724dbc89d7efee970cd,
     type: 2}
   m_PrefabInternal: {fileID: 2110975131}
---- !u!1 &594544661
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 594544662}
-  m_Layer: 0
-  m_Name: CameraPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &594544662
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 594544661}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6971734, z: -0.90071106}
-  m_LocalScale: {x: 1.0229286, y: 0.24963464, z: 0.06240864}
-  m_Children: []
-  m_Father: {fileID: 1408667368}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &636241984
 Prefab:
   m_ObjectHideFlags: 0
@@ -1754,11 +1726,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dc8625bda37e4f56bdffa0f2493ff56, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1408667368 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4249497961895086, guid: 7dc8625bda37e4f56bdffa0f2493ff56,
-    type: 2}
-  m_PrefabInternal: {fileID: 1408667367}
 --- !u!1 &1427791968 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 8b448b7c89fdc44cb9918c39b9447289, type: 3}
