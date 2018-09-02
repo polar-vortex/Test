@@ -6,6 +6,7 @@
 
 	public class TurretRoller : MonoBehaviour {
 		public Transform selfTransform;
+		[SerializeField]private Transform pointer;
 
 		[SerializeField]private float rotateTime=1f;
 		[SerializeField]private Vector2 yAxleLimit;
@@ -22,35 +23,45 @@
 		private int turn=0;
 
 		private RaycastHit hit;
+
+		[SerializeField]private float iota=2;
 		
 		void Update () {
-			Vector3 relativeTargetPosition = selfTransform.InverseTransformPoint(targetPoint);
 
-			targetAngles.x = Mathf.Atan(relativeTargetPosition.y / relativeTargetPosition.z) * Mathf.Rad2Deg;
-			targetAngles.y = Mathf.Atan(relativeTargetPosition.x / relativeTargetPosition.z) * Mathf.Rad2Deg;
-			print(targetAngles.y);
+			pointer.LookAt(targetPoint);
+			//pointer.localEulerAngles = -pointer.localEulerAngles;
+			targetAngles.x = -pointer.localEulerAngles.y;
+			targetAngles.y = -pointer.localEulerAngles.x;
 
-			targetAngles.x = relativeTargetPosition.z > 0 ? targetAngles.x : 180 + targetAngles.x;
-			targetAngles.y = relativeTargetPosition.z > 0 ? targetAngles.y : 180 + targetAngles.y;
+			Mathf.SmoothDampAngle(xAxle.localEulerAngles.x, targetAngles.x, ref vAngular.x, rotateTime);
+			Mathf.SmoothDampAngle(yAxle.localEulerAngles.x, targetAngles.y, ref vAngular.y, rotateTime);
+			//print(xAxle.localEulerAngles.x + " " + targetAngles.x+" "+vAngular.x);
 
-			//xAxle.localEulerAngles = new Vector3(xAxle.localEulerAngles.x, 90, 0);
-			yAxle.localEulerAngles = new Vector3(0, 180, yAxle.localEulerAngles.z);
+			if (targetAngles.x > 90 && targetAngles.x < 270) {
+				vAngular.x = -vAngular.x;
+			}
 
-			Mathf.SmoothDampAngle(0, targetAngles.x, ref vAngular.y, rotateTime);
-			Mathf.SmoothDampAngle(0, targetAngles.y, ref vAngular.x, rotateTime);
+			if (Mathf.Abs(xAxle.localEulerAngles.x-targetAngles.x) <= iota) {
+				vAngular.x = 0;
+			}
+			if (Mathf.Abs(yAxle.localEulerAngles.x-targetAngles.y) <= iota) {
+				vAngular.y = 0;
+			}
+
 			Rotate(vAngular.x, vAngular.y);
 
-			if (yAxle.localEulerAngles.z < 180 && yAxle.localEulerAngles.z > yAxleLimit.x) {
-				yAxle.localEulerAngles = new Vector3(0, 180, yAxleLimit.x);
+			if (yAxle.localEulerAngles.x < 180 && yAxle.localEulerAngles.x > yAxleLimit.x) {
+				yAxle.localEulerAngles = new Vector3(yAxleLimit.x, 0, 0);
 			}
-			if (yAxle.localEulerAngles.z > 180 && yAxle.localEulerAngles.z < yAxleLimit.y) {
-				yAxle.localEulerAngles = new Vector3(0, 180, yAxleLimit.y);
+			if (yAxle.localEulerAngles.x > 180 && yAxle.localEulerAngles.x < yAxleLimit.y) {
+				yAxle.localEulerAngles = new Vector3(yAxleLimit.y, 0, 0);
 			}
 		}
 
 		public void Rotate(float xValue, float yValue){
 			xAxle.Rotate (Vector3.right * xValue * Time.deltaTime);
-			yAxle.Rotate (Vector3.forward * yValue * Time.deltaTime);
+			yAxle.Rotate (Vector3.right * yValue * Time.deltaTime);
 		}
 	}
+
 }
